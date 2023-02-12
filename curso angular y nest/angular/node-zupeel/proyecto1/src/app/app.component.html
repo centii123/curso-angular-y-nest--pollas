@@ -1,0 +1,55 @@
+<p>nombre:{{personas.nombre}}</p>
+<input type="text" required #nombre="ngModel" [(ngModel)]="personas.nombre"> validacion:{{nombre.valid}}
+<p>apellido:{{personas.apellido}}</p>
+<input type="text" required #apellido="ngModel" [(ngModel)]="personas.apellido">validacion:{{apellido.valid}}
+<p>edad:{{personas.edad}}</p>
+<input type="number" max="10" min="5" #edad="ngModel" [(ngModel)]="personas.edad">validacion:{{edad.valid}}
+<p>escrito:{{valorcam}}</p>
+<input type="text" [value]="valorcam" (keyup)="valorimput($event)" name="" id="">
+
+<p>escrito:{{valorcam}}</p>
+<input type="text" [(ngModel)]="valorcam" name="" id="">
+
+<h1>*ngif</h1>
+<p>mi contenido</p>
+<input type="number" #if1="ngModel" [(ngModel)]="personas.edad">
+<div *ngIf="if1.value >= 10">
+numero mayor a 10
+</div>
+<div *ngIf="if1.value <10">
+numero menor a 10
+</div>
+<!--OJO para poner un id a la eriqueta se pone #"nombre de la etiqueta" y para usar solo se pone el nombre de la etiqueta que le pusimos sin el # ya que esto solo es para decir que es un id-->
+<input type="text" #if2="ngModel" [(ngModel)]="personas.nombre">
+<div *ngIf="if2.value == 'enrique' &&  if1.value == 10 else elsehola"><!--else "id de la seccion ng-template" en este caso es elsehola es para el if else-->
+tu nombre es enrique
+</div>
+<div *ngIf="if2.value != 'enrique'">
+tu no eres enrique
+</div>
+<ng-template #elsehola><!--el else de arriba aqui esta-->
+<div>
+NADA
+</div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,14 @@
+<h1>{{ titulo. repeat(5) }}</h1>
+<div *ngIf="numero<30 else hola" >
+<p>hola</p>
+</div>
+<ng-template #hola>
+    <p>hola2</p>
+</ng-template>
+<input type="text" [(ngModel)]="numero">
+<input type="text" [(ngModel)]="persona.nombre">
+<p>{{persona.nombre}}</p>
+<button (click)="enviar()">enviar</button>
+<div *ngFor="let i=0;i<3;i++">
+    {{i}}
+</div>

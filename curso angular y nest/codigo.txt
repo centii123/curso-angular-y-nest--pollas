@@ -1,0 +1,39 @@
+//inicia el servidor *hay q estar inicializando a cada rato cada vez que aga cambios
+npm start
+
+//inicia el servidor como desarrollador *no hay que inicializar cada vez que aga cambios a tiempo real
+npm run start:dev
+
+//me muestra todo lo que puedo generar 
+nest --help
+
+//para generar un controlador ejemplo /task esto en la ruta 
+nest generate controller task
+
+//generar servicios para no llenar tanto los controladores 
+nest g service task
+
+//generar modulos 
+nest g module task
+
+//interfases, para poner que va a tener cada propiedad
+nest g interface task/interface
+
+//basedatos modulos 
+npm install --save @nestjs/typeorm typeorm pg
+
+//paginacion 
+npm i --save class-validator class-transformer
+
+-UsePipes , ValidationPipe-> en el controlador
+
+-en el  main.ts hay que poner si o si
+    app.useGlobalPipes(
+        new ValidationPipe({
+        forbidNonWhitelisted: true,
+        transformOptions: {
+            enableImplicitConversion: true
+        }
+
+        })
+    )

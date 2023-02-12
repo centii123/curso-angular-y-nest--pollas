@@ -1,0 +1,39 @@
+//instanlar el CLI de angular
+npm install -g @angular/cli
+
+//crear nuevo proyecto
+ng new my-first-project
+//preguntas al crear
+1.-Would you like to add Angular routing? //quieres agregar rutas
+2.-Which stylesheet format would you like to use? //que tipo de estilos usaras
+cd my-first-project  //ingresa a la carpeta creada con el proyecto
+
+//iniciar servido
+ng serve
+
+//generar componente
+ng g component <name>  //ejemplo: ng g component componentes/libros -> se crea una carpeta llamada componentes o busca una ya creada en app y dentro crea una carpeta llamada libros donde estan los componentes llamados libros
+o
+ng generate component <name>
+
+//generar modulos
+ng g module componentes/libros -m=app --route libros //-m=app -> esto hace que automaticamente se implemente en el modulo principal, --route libros ->crea una ruta llamada /libros
+pregunta
+¿Le gustaría compartir datos de uso seudónimos sobre este proyecto con el equipo de Angular?
+en Google bajo la Política de privacidad de Google en https://policies.google.com/privacy. Para más
+detalles y cómo cambiar esta configuración, consulte https://angular.io/analytics
+
+ng g m pages/pages --flat
+solo el archivo module con el --flat
+
+//crear routing codigo cli
+ng g m appRouting --flat//--flat->para que se me cree en la carpeta de origen
+/*agregar*/
+const routes: Routes = [
+  
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})

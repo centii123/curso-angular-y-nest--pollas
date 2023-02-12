@@ -1,0 +1,57 @@
+<h1>mostrar datos</h1>
+<h1>hola mundo</h1>
+<h2>{{ 'hola mundo'.repeat(5) }}</h2><!--repeat(5)-repetir 5 veces -->
+<p>3+3={{3+3}}</p>
+<h3>hola soy: {{name}}</h3>
+<h4>mi edad es: {{edad}}</h4>
+<img src="{{img}}" alt="" width="100px"><!--incorrecto con -> {{}}-->
+<br>
+<button disabled="false">enviar</button>
+<br>
+<button [disabled]="botonDesactivado">papa</button>
+<!--[disabled]="botonDesactivado" esta desactivado=true-->
+<!--[para quien?]="nombre del atributo"->queremos un atributo que esta en el componente-->
+<input type="text" value="mama" name="" id=""><!--normal-->
+<input type="text" value="{{name}}" name="" id="">
+<!--con llaves llamando una variable-->
+<input type="text" [value]="name" name="" id="">
+<!--diciendole que  queremos un atributo del componente donde en value con el valor de ="name"->variable que esta en el componente-->
+<progress max="100" [value]="edad"></progress>
+<img [src]="img" alt="" width="100px"><!--correcto-->
+<p>persona={{persona.name}}</p>
+<!--configuracion de propiedades con ->[value]="variable"
+{{}}->esto es mas para ingresar contenido-->
+
+<h1>eventos</h1>
+<!--click-->
+<button [disabled]="botonDesactivado">enviar</button>
+<button (click)="toggleBoton()">toggle button</button>
+<!--(metodo)="funcion"-->
+<button (click)="incrementaredad()">incrementar edad</button>
+<button (click)="bajaredad()">bajar edad</button>
+<div class="box" (scroll)="onscroll($event)">
+  <p>jdsfsdgjjasdhgsdguhgmWLHGIUnwlkgwe  f hewh fjgnlfhlkfjGH  FJDOFJODJF DKF JJDKFJDFJLggggggggggggggggggggggggggg
+    gggggggggggggggggggggggggggg
+    ggggggggggggggggggggg
+    ggggggggg
+    gggggggggggggggggggggggggggggg
+    ggggg</p>
+</div>
+<p > {{ persona.name }} </p>
+<input type="text" [value]="persona.name" (keyup)="key($event)" name="" id=""><!--$event -> esto para enviar el evento al metodo tiene que ser si o si $event si no no funciona-->
+<br><br>
+<input type="text" [(ngModel)]="persona.cambio" name="" id=""><p>{{persona.cambio}}</p><br>
+<!--ngModel->cambia el texto de un atributo, [()]->juntamos lo de atributo con los eventos, union entre setiar una propiedad osea cambiarla [] y escuchar un evento (), es la union de las 2. -->
+
+<h4>validaciones con ngModel</h4>
+<input type="text" required #imputvalidacion="ngModel" [(ngModel)]="validacion" name="" id="">
+<p>validacion: {{imputvalidacion.valid}}</p>
+<!--#imputvalidacion es el nombre como id de este input, = "ngModel"-> va a venir de ngModel o el valor lo va a coger de ngModel, {{imputvalidacion.valid}}->nombreCampo.valid esto va a validar el campo con un true si todo cumple o un false si no esta validado-->
+<br>
+<p>edad: {{animalesedad.perro}}</p>
+<input type="number" max="11" min="1" required #edadAnimal="ngModel"  [value]="animalesedad.perro" name="" [(ngModel)]="animalesedad.perro">
+validacion:{{edadAnimal.valid}}
+
+
+
+

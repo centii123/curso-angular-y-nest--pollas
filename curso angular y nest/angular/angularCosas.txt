@@ -1,0 +1,29 @@
+--crear componente
+
+1.-creamos una carpeta en app
+fruta
+2.-creamos un archivo con el mismo nombre del componente fruta.component.ts
+3.-en el archivo
+exportamos
+import { Component } from "@angular/core"; componente de angular
+
+@Component({ //ejecutamos el componente @->llama Component->nombre ({pasamos los parametros en este objeto})
+  selector: 'fruta', //la etiqueta donde se cargara el componente en este caso <fruta></fruta>
+  template: `
+  <h2>{{ nombreComponente }}</h2>
+  <p>peras,manzanas,etc</p>` //plantilla de este componente en este caso tendra html
+})
+
+export class FrutaComponent{ //clase nomenclatura la primera letra con mayuscula y con el nombre del componente asi FrutaComponent, Component con mayuscula es obligatorio para crear esta clase
+  public nombreComponente='hola';//variable y arriva imprimimos la variable
+}
+
+4.-vamos al archivo app.module.ts
+exportamos el componente
+import { FrutaComponent } from './fruta/fruta.component';
+
+declaramos el componente creado en declaration
+FrutaComponent
+
+5.-para que aparescan y funcionen las rutas en app.component,html
+<router-outlet></router-outlet> <!--para las rutas es obligatorio-->
